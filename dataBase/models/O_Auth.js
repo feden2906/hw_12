@@ -1,8 +1,10 @@
 const DataTypes = require('sequelize');
 
+const { modelNames, tableNames } = require('../../constants')
+
 module.exports = (client) => {
   const O_Auth = client.define(
-    'O_Auth',
+      modelNames.O_AUTH,
     {
       id: {
         type: DataTypes.INTEGER,
@@ -23,7 +25,7 @@ module.exports = (client) => {
       }
     },
     {
-      tableName: 'auth',
+      tableName: tableNames.AUTH,
       timestamps: false
     }
   );

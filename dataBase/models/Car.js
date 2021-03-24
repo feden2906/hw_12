@@ -1,8 +1,9 @@
 const DataTypes = require('sequelize');
 
+const { modelNames, tableNames } = require('../../constants')
 module.exports = (client) => {
   const Car = client.define(
-    'Car',
+      modelNames.CAR,
     {
       id: {
         type: DataTypes.INTEGER,
@@ -31,7 +32,7 @@ module.exports = (client) => {
       }
     },
     {
-      tableName: 'cars',
+      tableName: tableNames.CARS,
       timestamps: false
     }
   );

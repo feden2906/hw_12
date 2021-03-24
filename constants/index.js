@@ -4,6 +4,8 @@ module.exports = {
   emailActionsEnum: require('./emailActions.enum'),
   modelNames: require('./modelNames.enum'),
   regexpEnum: require('./regexp.enum'),
+  rolesEnum: require('./roles.enum'),
   statusCodes: require('./statusCodes.enum'),
-  statusMessages: require('./statusMessages')
+  statusMessages: require('./statusMessages'),
+  tableNames: require('./tableNames.enum')
 };

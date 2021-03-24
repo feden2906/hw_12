@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const { constants, regexpEnum } = require('../../constants');
+const { constants, regexpEnum, rolesEnum: { ADMIN, MANAGER, USER } } = require('../../constants');
 
 module.exports = Joi.object({
   name: Joi
@@ -20,6 +20,8 @@ module.exports = Joi.object({
   phone: Joi
       .string()
       .regex(regexpEnum.PHONE_REGEXP),
+  role: Joi
+      .valid(ADMIN, MANAGER, USER),
   isMarried: Joi
       .boolean()
       .required(),
