@@ -20,10 +20,29 @@ module.exports = {
     }
   },
 
+  checkRole: (whoHaveAccess = []) => async (req, res, next) => {
+    try {
+      if (!whoHaveAccess.length) {
+        next();
+      }
+
+      const { userID } = req.tokens;
+
+      const { dataValues: { role } } = await userService.findUserById(userID) || {};
+
+      if (!whoHaveAccess.includes(role)) {
+        throw new ErrorHandler(statusMessages.FORBIDDEN, statusCodes.FORBIDDEN)
+      }
+
+      next();
+    } catch (e) {
+      next(e)
+    }
+  },
+
   isUserExistForAuth: async (req, res, next) => {
     try {
       const { body: { email }, query: { prefLang = 'en' } } = req;
-
       const { dataValues } = await userService.findUser({ email }) || {};
 
       if (!dataValues) {

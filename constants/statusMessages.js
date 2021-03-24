@@ -141,6 +141,11 @@ module.exports = {
 
   AUTHORIZATION: {
     en: 'Authorization',
+    ua: 'Потрібно авторизуватися'
+  },
+
+  FORBIDDEN: {
+    en: 'Forbidden',
     ua: 'Немає доступу'
   },
 

@@ -1,4 +1,4 @@
-const fs = require('fs-extra').promises;
+// const fs = require('fs-extra').promises;
 
 const { passwordHasher } = require('../helpers');
 const { instanceTransaction } = require('../dataBase').getInstance();
