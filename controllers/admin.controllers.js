@@ -6,9 +6,30 @@ const { ErrorHandler } = require('../helpers');
 const userService = require('../services/user.services')
 const mailService = require('../services/mail.services')
 
-const getBlockedUsers = () => {};
+const getBlockedUsers = async (req, res, next) => {
+  try {
+    const users = await userService.findUsers(req.query)
 
-const changeUserStatus = () => {};
+    res.json(users);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const changeUserStatus = async (req, res, next) => {
+  const transaction = await instanceTransaction();
+  try {
+    const { params: { userID }, query: { prefLang = 'en' } } = req;
+
+    await userService.updateUser(userID, req.body, transaction)
+
+    await transaction.commit();
+    res.json(statusMessages.USER_STATUS_WAS_UPDATE[prefLang])
+  } catch (e) {
+    await transaction.rollback();
+    next(e)
+  }
+};
 
 const deleteUser = async (req, res, next) => {
   const transaction = await instanceTransaction();

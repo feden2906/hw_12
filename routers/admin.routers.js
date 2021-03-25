@@ -6,7 +6,7 @@ const { ADMIN, MANAGER } = require('../constants/roles.enum');
 
 router.route('/users')
     .get(mwAuth.checkAccessToken,
-      mwAuth.checkRole,
+      mwAuth.checkRole([ADMIN, MANAGER]),
       adminControllers.getBlockedUsers);
 
 router.route('/users/:userID')

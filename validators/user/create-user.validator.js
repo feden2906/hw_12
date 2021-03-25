@@ -28,8 +28,6 @@ module.exports = Joi.object({
   gender: Joi
       .string()
       .required(),
-  accountStatus: Joi
-      .string(),
   yearBorn: Joi
       .number()
       .min(constants.CURRENT_YEAR - 100)

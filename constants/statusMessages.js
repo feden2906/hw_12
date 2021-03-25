@@ -124,6 +124,11 @@ module.exports = {
     ua: 'Дані користувача оновлено'
   },
 
+  USER_STATUS_WAS_UPDATE: {
+    en: 'User`s status was updated',
+    ua: 'Статус користувача оновлено'
+  },
+
   AUTH_USER: {
     en: 'User was authorization',
     ua: 'Користувача залогінено'
