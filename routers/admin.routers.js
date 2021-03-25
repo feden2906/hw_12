@@ -7,15 +7,15 @@ const { ADMIN, MANAGER } = require('../constants/roles.enum');
 router.route('/users')
     .get(mwAuth.checkAccessToken,
       mwAuth.checkRole,
-      adminControllers.getAllUsers),
+      adminControllers.getBlockedUsers);
 
 router.route('/users/:userID')
     .put(mwAuth.checkAccessToken,
-      mwAuth.checkRole,
+      mwAuth.checkRole([ADMIN, MANAGER]),
       adminControllers.changeUserStatus)
 
     .delete(mwAuth.checkAccessToken,
-      mwAuth.checkRole([ADMIN, MANAGER]),
+      mwAuth.checkRole([ADMIN]),
       adminControllers.deleteUser)
 
 // router.route('/cars')

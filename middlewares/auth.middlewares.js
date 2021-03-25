@@ -22,6 +22,8 @@ module.exports = {
 
   checkRole: (whoHaveAccess = []) => async (req, res, next) => {
     try {
+      const { prefLang = 'en' } = req.query;
+
       if (!whoHaveAccess.length) {
         next();
       }
@@ -31,7 +33,7 @@ module.exports = {
       const { dataValues: { role } } = await userService.findUserById(userID) || {};
 
       if (!whoHaveAccess.includes(role)) {
-        throw new ErrorHandler(statusMessages.FORBIDDEN, statusCodes.FORBIDDEN)
+        throw new ErrorHandler(statusMessages.FORBIDDEN[prefLang], statusCodes.FORBIDDEN)
       }
 
       next();
