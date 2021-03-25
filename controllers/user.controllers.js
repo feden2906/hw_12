@@ -1,10 +1,8 @@
 // const fs = require('fs-extra').promises;
-
 const { passwordHasher } = require('../helpers');
 const { instanceTransaction } = require('../dataBase').getInstance();
 const { directoryName: { USERS, DOCS, PHOTOS, VIDEOS }, statusCodes, statusMessages, emailActionsEnum } = require('../constants');
-const { userService } = require('../services');
-const mailService = require('../services/mail.services')
+const { userService, mailService } = require('../services');
 
 module.exports = {
   getUsers: async (req, res, next) => {

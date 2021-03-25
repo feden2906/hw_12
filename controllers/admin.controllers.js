@@ -2,9 +2,7 @@ const { instanceTransaction } = require('../dataBase').getInstance();
 const { statusCodes, statusMessages, emailActionsEnum } = require('../constants');
 const { ErrorHandler } = require('../helpers');
 
-// const { userService, mailService } = require('../services');
-const userService = require('../services/user.services')
-const mailService = require('../services/mail.services')
+const { userService, mailService } = require('../services');
 
 const getBlockedUsers = async (req, res, next) => {
   try {
