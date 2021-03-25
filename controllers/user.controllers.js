@@ -2,12 +2,9 @@
 
 const { passwordHasher } = require('../helpers');
 const { instanceTransaction } = require('../dataBase').getInstance();
-const {
-  directoryName: {
-    USERS, DOCS, PHOTOS, VIDEOS
-  }, statusCodes, statusMessages, emailActionsEnum
-} = require('../constants');
-const { userService, mailService } = require('../services');
+const { directoryName: { USERS, DOCS, PHOTOS, VIDEOS }, statusCodes, statusMessages, emailActionsEnum } = require('../constants');
+const { userService } = require('../services');
+const mailService = require('../services/mail.services')
 
 module.exports = {
   getUsers: async (req, res, next) => {

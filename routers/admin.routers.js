@@ -5,18 +5,18 @@ const { adminControllers } = require('../controllers');
 const { ADMIN, MANAGER } = require('../constants/roles.enum');
 
 router.route('/users')
-    // .get(mwAuth.checkAccessToken,
-    //   mwAuth.checkRole,
-    //   adminControllers.getAllUsers),
+    .get(mwAuth.checkAccessToken,
+      mwAuth.checkRole,
+      adminControllers.getAllUsers),
 
 router.route('/users/:userID')
-    // .put(mwAuth.checkAccessToken,
-    //   mwAuth.checkRole,
-    //   adminControllers.changeUserStatus)
+    .put(mwAuth.checkAccessToken,
+      mwAuth.checkRole,
+      adminControllers.changeUserStatus)
 
-    // .delete(mwAuth.checkAccessToken,
-      // mwAuth.checkRole([ADMIN, MANAGER]),
-      // adminControllers.deleteUser)
+    .delete(mwAuth.checkAccessToken,
+      mwAuth.checkRole([ADMIN, MANAGER]),
+      adminControllers.deleteUser)
 
 // router.route('/cars')
 //     .delete(mwAuth.checkAccessToken,
