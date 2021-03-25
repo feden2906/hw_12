@@ -42,6 +42,11 @@ module.exports = (client) => {
         gender: {
           type: DataTypes.STRING,
           allowNull: false
+        },
+        accountStatus: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          defaultValue: 'active'
         }
       },
       {

@@ -4,8 +4,8 @@ module.exports = {
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET || 'MY_REFRESH_SECRET',
   PORT: process.env.PORT || 5000,
 
-  ROOT_EMAIL: process.env.ROOT_EMAIL || 'maksona2906@gmail.com',
-  ROOT_EMAIL_PASSWORD: process.env.ROOT_EMAIL_PASSWORD || 'ozater12345',
+  ROOT_EMAIL: process.env.ROOT_EMAIL || 'qqq@gmail.com',
+  ROOT_EMAIL_PASSWORD: process.env.ROOT_EMAIL_PASSWORD || 'qqq',
 
   DB_LOGIN: process.env.DB_LOGIN || 'root',
   DB_PASSWORD: process.env.DB_PASSWORD || 'root',
