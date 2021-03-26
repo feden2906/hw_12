@@ -5,6 +5,7 @@ const fileUpload = require('express-fileupload');
 const db = require('./dataBase').getInstance();
 
 require('dotenv').config();
+const cronRun = require('./cron-jobs');
 
 db.setModels();
 
@@ -28,4 +29,6 @@ app.use('*', (err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`server started to ${PORT}`);
+  cronRun();
 });
+
