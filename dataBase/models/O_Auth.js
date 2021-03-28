@@ -26,7 +26,7 @@ module.exports = (client) => {
     },
     {
       tableName: tableNames.AUTH,
-      timestamps: false
+      timestamps: true
     }
   );
 
