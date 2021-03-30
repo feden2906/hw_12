@@ -11,10 +11,9 @@ db.setModels();
 
 const { apiRouter } = require('./routers');
 const { PORT } = require('./configs/configs');
+const { Sentry } = require('./logger');
 
 const app = express();
-
-Sentry.init({ dsn: "https://d151280c4536471cb37388a05a3981f6@o561011.ingest.sentry.io/5697310" }); // Sentry configuration
 
 app.use(fileUpload());
 app.use(express.json());
@@ -28,6 +27,8 @@ app.use('/', apiRouter);
 app.use(Sentry.Handlers.errorHandler());          // last Sentry middleware
 
 app.use('*', (err, req, res, next) => {
+  Sentry.captureException(err)
+
   res
       .status(err.status)
       .json({ text: err.message });
