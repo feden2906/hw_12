@@ -6,6 +6,7 @@ module.exports = {
   regexpEnum: require('./regexp.enum'),
   rolesEnum: require('./roles.enum'),
   statusCodes: require('./statusCodes.enum'),
+  statusAccountEnum: require('./statusAccountEnum'),
   statusMessages: require('./statusMessages'),
   tableNames: require('./tableNames.enum')
 };

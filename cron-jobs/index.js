@@ -4,7 +4,7 @@ const { countUsers } = require('./calculate-statistic')
 module.exports = () => {
   try {
     cron.schedule('*/10 * * * * *', () => {
-      Promise.allSettled([countUsers()]).then(() => console.log(1))
+      // Promise.allSettled([countUsers()]).then(() => console.log(1))
       // countUsers();
     })
   } catch (e) {

@@ -11,7 +11,6 @@ module.exports = {
     console.log(count)
   }
 }
-// { where: { accountStatus: 'active' }}
 
 
 
