@@ -3,7 +3,7 @@ module.exports = {
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET || 'MY_REFRESH_SECRET',
 
   SENTRY_DSN: process.env.SENTRY_DSN || 'ddddd',
-  MONGO_URL: process.env.MONGO_URL || 'mongodb://localhost:27017/users_cars',
+  MONGO_URL: process.env.MONGO_URL || 'dddddd',
   PORT: process.env.PORT || 5000,
 
   ROOT_EMAIL: process.env.ROOT_EMAIL || 'dddddd',
