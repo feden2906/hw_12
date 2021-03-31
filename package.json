@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run test && pm2 kill && pm2 start app.js --name HW12 --watch",
+    "start": "mode app.js",
+    "dev": "npm run test && pm2 kill && pm2 start app.js --name HW12 --watch",
     "first": "npx sequelize-cli db:migrate && nodemon app.js",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "nyc npm run test"
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +26,7 @@
     "mysql2": "^2.2.5",
     "node-cron": "^3.0.0",
     "nodemailer": "^6.5.0",
+    "nyc": "^15.1.0",
     "pug": "^3.0.2",
     "sequelize": "^6.5.1",
     "sequelize-cli": "^6.2.0",

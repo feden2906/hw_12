@@ -20,14 +20,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(process.cwd(), 'public')));
 
-app.use(Sentry.Handlers.requestHandler());        // first Sentry middleware
+app.use(Sentry.Handlers.requestHandler()); // first Sentry middleware
 
 app.use('/', apiRouter);
 
-app.use(Sentry.Handlers.errorHandler());          // last Sentry middleware
+app.use(Sentry.Handlers.errorHandler()); // last Sentry middleware
 
 app.use('*', (err, req, res, next) => {
-  Sentry.captureException(err)
+  Sentry.captureException(err);
 
   res
       .status(err.status)
@@ -38,4 +38,3 @@ app.listen(PORT, () => {
   console.log(`server started to ${PORT}`);
   cronRun();
 });
-

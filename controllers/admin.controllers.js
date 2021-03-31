@@ -6,7 +6,7 @@ const { userService, mailService } = require('../services');
 
 const getBlockedUsers = async (req, res, next) => {
   try {
-    const users = await userService.findUsers(req.query)
+    const users = await userService.findUsers(req.query);
 
     res.json(users);
   } catch (e) {
@@ -19,13 +19,14 @@ const changeUserStatus = async (req, res, next) => {
   try {
     const { params: { userID }, query: { prefLang = 'en' } } = req;
 
-    await userService.updateUser(userID, req.body, transaction)
+    // TODO
+    await userService.updateUser(userID, req.body, transaction);
 
     await transaction.commit();
-    res.json(statusMessages.USER_STATUS_WAS_UPDATE[prefLang])
+    res.json(statusMessages.USER_STATUS_WAS_UPDATE[prefLang]);
   } catch (e) {
     await transaction.rollback();
-    next(e)
+    next(e);
   }
 };
 
@@ -37,7 +38,7 @@ const deleteUser = async (req, res, next) => {
     const { name, email } = await userService.findUserById(userID) || {};
 
     if (!email) {
-      throw new ErrorHandler(statusMessages.USERS_NOT_FOUND[prefLang], statusCodes.BAD_REQUEST)
+      throw new ErrorHandler(statusMessages.USERS_NOT_FOUND[prefLang], statusCodes.BAD_REQUEST);
     }
 
     await userService.deleteUser(userID, transaction);
@@ -51,9 +52,9 @@ const deleteUser = async (req, res, next) => {
     await transaction.rollback();
     next(e);
   }
-}
+};
 module.exports = {
   getBlockedUsers,
   changeUserStatus,
   deleteUser
-}
+};

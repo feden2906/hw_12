@@ -19,6 +19,7 @@ describe('Test utils.js', () => {
       const name = _nameNormalizator(testObj.input);
 
       expect(name).toBe(testObj.output);
+      expect(name).toBeInstanceOf(String);
     });
   });
 });
