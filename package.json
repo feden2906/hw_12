@@ -1,7 +1,10 @@
 {
   "name": "node_hw",
   "version": "1.0.0",
-  "description": "",
+  "description": "piska",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "index.js",
   "scripts": {
     "start": "mode app.js",
