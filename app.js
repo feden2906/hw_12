@@ -2,9 +2,9 @@ const express = require('express');
 const path = require('path');
 const fileUpload = require('express-fileupload');
 
+require('dotenv').config();
 const db = require('./dataBase').getInstance();
 
-require('dotenv').config();
 const cronRun = require('./cron-jobs');
 
 db.setModels();

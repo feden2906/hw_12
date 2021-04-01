@@ -1,4 +1,4 @@
-const {  DB_DIALECT, DB_HOST, DB_LOGIN, DB_PASSWORD, DB_SCHEMA } = require('./configs');
+const { DB_DIALECT, DB_HOST, DB_LOGIN, DB_PASSWORD, DB_SCHEMA } = require('./configs');
 
 module.exports = {
   development: {
