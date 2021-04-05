@@ -33,12 +33,12 @@ module.exports = {
       const { dataValues: { role } } = await userService.findUserById(userID) || {};
 
       if (!whoHaveAccess.includes(role)) {
-        throw new ErrorHandler(statusMessages.FORBIDDEN[prefLang], statusCodes.FORBIDDEN)
+        throw new ErrorHandler(statusMessages.FORBIDDEN[prefLang], statusCodes.FORBIDDEN);
       }
 
       next();
     } catch (e) {
-      next(e)
+      next(e);
     }
   },
 
